@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dark Reader DOM Explosion Test</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+}
+
+.block{
+    height:100px;
+    width:100%;
+    display:flex;
+    align-items:center;
+    padding-left:20px;
+    box-sizing:border-box;
+    font-size:20px;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<script>
+
+for(let i = 0; i < 10000; i++){
+
+    const block = document.createElement("div");
+
+    block.className = "block";
+
+    block.style.backgroundColor =
+        `rgb(
+            ${i % 255},
+            ${(i * 2) % 255},
+            ${(i * 3) % 255}
+        )`;
+
+    block.style.color =
+        `rgb(
+            ${(i * 4) % 255},
+            ${(i * 5) % 255},
+            ${(i * 6) % 255}
+        )`;
+
+    block.textContent =
+        `Block ${i} | RGB(${i % 255}, ${(i * 2) % 255}, ${(i * 3) % 255})`;
+
+    document.body.appendChild(block);
+}
+
+</script>
+
+</body>
+</html>

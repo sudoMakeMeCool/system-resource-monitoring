@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Color Scroll Benchmark</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.block {
+    height: 100px;
+    width: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+
+const colors = [
+    "#ff0000",
+    "#00ff00",
+    "#0000ff",
+    "#ffff00",
+    "#ff00ff",
+    "#00ffff",
+    "#ff8800",
+    "#8800ff",
+    "#00ff88",
+    "#ff0088"
+];
+
+for(let i = 0; i < 3000; i++){
+
+    const div = document.createElement("div");
+
+    div.className = "block";
+
+    div.style.backgroundColor =
+        colors[i % colors.length];
+
+    document.body.appendChild(div);
+}
+
+</script>
+
+</body>
+</html>
